@@ -1,0 +1,24 @@
+.nav {
+    display: flex;
+    justify-content: space-between;
+    list-style-type: none;
+    flex-direction: column;
+}
+
+.nav li {
+    margin: 8px 0;
+    text-decoration: none;
+    color: var(--theme-beige-color);
+    cursor: pointer;
+    transition-property: opacity;
+    transition-duration: .4s;
+    transition-timing-function: cubic-bezier(0.1, 0.4, 0.2, 1);
+}
+
+.nav li:hover {
+    opacity: 0.6;
+}
+
+.selected {
+    opacity: 0.6;
+}

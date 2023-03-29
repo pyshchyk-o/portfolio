@@ -1,0 +1,110 @@
+:root {
+  --title-font-size: 30px;
+  --theme-beige-color: #F5F3EFFF;
+  --theme-white-color: #ffffff;
+  --theme-black-color: #000000;
+  --font-mono: ui-monospace, Menlo, Monaco, 'Cascadia Mono', 'Segoe UI Mono',
+    'Roboto Mono', 'Oxygen Mono', 'Ubuntu Monospace', 'Source Code Pro',
+    'Fira Mono', 'Droid Sans Mono', 'Courier New', monospace;
+}
+
+html,
+body {
+  width: 100%;
+  height: 100%;
+}
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font: var(--font-mono);
+  font-family: Helvetica;
+  color: var(--theme-beige-color);
+}
+
+#__next {
+  width: 100%;
+  height: 100%;
+}
+
+.container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 100%;
+  height: 100%;
+  background-color: var(--theme-black-color);
+}
+
+.home-page-container {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  position: relative;
+  width: 100%;
+  height: 100%;
+}
+
+canvas {
+  width: 100%;
+  height: 100%;
+}
+
+.main-content-wrapper {
+  z-index: 2;
+  color: var(--theme-beige-color);
+  background-color: rgba(0, 0, 0, 0.3);
+  padding: 20px;
+}
+
+.main-content-nav-items {
+  width: 600px;
+  /*height: 400px;*/
+}
+
+.main-content-navbar {
+  position: absolute;
+  top: 0;
+  left: 0;
+}
+
+.main-content-toggle {
+  position: absolute;
+  display: flex;
+  column-gap: 15px;
+  cursor: pointer;
+  transform: rotate(-90deg);
+  bottom: 91px;
+  left: -91px;
+}
+
+.main-content-gradient {
+  position: absolute;
+  bottom: 0;
+}
+
+/*Transition*/
+.component-container {
+  display: grid;
+}
+
+.component {
+  grid-area: 1 / 1 / 2 / 2;
+  opacity: 0;
+  transform: translateY(20px);
+  transition: opacity 300ms, transform 300ms;
+  transition-timing-function: cubic-bezier(0.1, 0.4, 0.2, 1);
+  pointer-events: none;
+}
+
+.component.active {
+  opacity: 1;
+  transform: translateY(0);
+  pointer-events: auto;
+}
+
+.opacity-transition {
+  opacity: 1;
+  transition: opacity 0.3s ease-in-out;
+}

@@ -1,0 +1,25 @@
+.projectsTitle {
+    font-size: var(--title-font-size);
+    margin-bottom: 12px;
+}
+
+.projectsList {
+    list-style-type: none;
+}
+
+.description {
+    margin-left: 4px;
+}
+
+.link {
+    text-decoration: none;
+    color: var(--theme-beige-color);
+    font-weight: 600;
+    transition-property: opacity;
+    transition-duration: .4s;
+    transition-timing-function: cubic-bezier(0.1, 0.4, 0.2, 1);
+}
+
+.link:hover {
+    opacity: 0.6;
+}

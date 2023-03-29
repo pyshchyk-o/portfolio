@@ -1,0 +1,29 @@
+.gradientContainer {
+    display: flex;
+    justify-content: space-between;
+    width: 186px;
+}
+
+.gradientOption {
+    width: 40px;
+    height: 40px;
+    border: 3px solid var(--theme-beige-color);
+    border-radius: 20px;
+    cursor: pointer;
+}
+
+.gradientDark {
+    background-image: linear-gradient(to right, #006666 50%, #8b008b 50%);
+}
+
+.gradientBright {
+    background-image: linear-gradient(to right, #00ff00 50%, #ff69b4 50%);
+}
+
+.gradientPastel {
+    background-image: linear-gradient(to right, #b19cd9 50%, #ff7f50 50%);;
+}
+
+.gradientUkraine {
+    background-image: linear-gradient(to right, #d8d824 50%, #0096ff 50%);
+}
