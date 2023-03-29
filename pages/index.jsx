@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import * as React from 'react';
 import Head from 'next/head';
 import Navbar from './components/Navbar/Navbar';
 import Main from './components/Main/Main';
@@ -13,13 +13,6 @@ import GradientSwitcher from './components/GradientSwitcher/GradientSwitcher';
 
 // TODO: save pref of animation in local storage
 
-// const navItemsDefault = {
-//   home: true,
-//   skills: false,
-//   projects: false,
-//   contact: false,
-// };
-
 const gradientsDefault = {
   dark: 'dark',
   pastel: 'pastel',
@@ -28,9 +21,9 @@ const gradientsDefault = {
 };
 
 const Home = () => {
-  const [selectedNav, setSelectedNav] = useState('home');
-  const [animationEnabled, setAnimationEnabled] = useState(true);
-  const [gradient, setGradient] = useState(gradientsDefault.dark);
+  const [selectedNav, setSelectedNav] = React.useState('home');
+  const [animationEnabled, setAnimationEnabled] = React.useState(true);
+  const [gradient, setGradient] = React.useState(gradientsDefault.dark);
 
   const onToggleAnimation = (val) => setAnimationEnabled(val);
   const onSetGradient = (val) => setGradient(val);

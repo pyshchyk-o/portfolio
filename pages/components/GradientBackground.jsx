@@ -1,4 +1,4 @@
-import React, { useMemo, useRef } from 'react';
+import * as React from 'react';
 import glsl from 'glslify';
 import { OrbitControls } from 'three/examples/jsm/controls/OrbitControls';
 import { extend, useFrame, useThree } from '@react-three/fiber';
@@ -104,7 +104,7 @@ const gradients = {
 
 const ParallaxBackground = ({ fragmentShader }) => {
   const { camera, gl } = useThree();
-  const orbitControlsRef = useRef();
+  const orbitControlsRef = React.useRef();
 
   useFrame((state, delta) => {
     if (orbitControlsRef.current) {
@@ -112,7 +112,7 @@ const ParallaxBackground = ({ fragmentShader }) => {
     }
   });
 
-  const uniforms = useMemo(() => {
+  const uniforms = React.useMemo(() => {
     return {
       time: { value: 1.0 },
     };

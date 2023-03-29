@@ -1,11 +1,9 @@
-import React, { useMemo } from 'react';
+import * as React from 'react';
 import { Canvas, useFrame } from '@react-three/fiber';
 import { Plane, PerspectiveCamera, OrbitControls } from '@react-three/drei';
-import styles from './animatedBackground.module.css';
 
 const Particles = ({ count = 1000 }) => {
-  const ref = React.useRef();
-  const particles = useMemo(() => {
+  const particles = React.useMemo(() => {
     const temp = [];
     for (let i = 0; i < count; i++) {
       temp.push({
@@ -20,6 +18,7 @@ const Particles = ({ count = 1000 }) => {
     return temp;
   }, [count]);
 
+  const ref = React.useRef();
   useFrame(() => {
     ref.current.rotation.x += 0.001;
     ref.current.rotation.y += 0.001;
@@ -30,26 +29,40 @@ const Particles = ({ count = 1000 }) => {
     <group ref={ref}>
       {particles.map((particle, i) => (
         <Plane key={i} position={particle.position} scale={particle.scale}>
-          <meshBasicMaterial color="#808080" />
+          <meshBasicMaterial
+            attach="material"
+            color={
+              i % 2 === 0 ? 'rgba(24, 77, 122, 0.6)' : 'rgba(48, 154, 245, 0.6)'
+            }
+          />
         </Plane>
       ))}
     </group>
   );
 };
 
-const AnimatedBackground = () => {
+const Background = ({ animationEnabled }) => {
   return (
-    <Canvas className={styles.canvasContainer}>
-      <PerspectiveCamera position={[0, 0, 50]} />
-      <Particles count={3000} />
+    <Canvas
+      style={{
+        position: 'fixed',
+        top: 0,
+        left: 0,
+        zIndex: 1,
+        opacity: animationEnabled ? 1 : 0,
+        transition: 'opacity 0.3s ease-in-out',
+      }}
+      gl={{ clearColor: 'black' }}
+    >
+      <PerspectiveCamera position={[0, 0, 35]} />
+      <Particles count={1000} />
       <OrbitControls
-        minDistance={25} // minimum distance the user can zoom in
-        maxDistance={75} // maximum distance the user can zoom out
-        enableRotate={false} // disable rotation
-        enableDamping
+        minDistance={25}
+        maxDistance={75}
+        enableRotate={false}
       />
     </Canvas>
   );
 };
 
-export default AnimatedBackground;
+export default Background;
