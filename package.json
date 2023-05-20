@@ -6,7 +6,8 @@
     "dev": "next dev",
     "build": "next build",
     "start": "next start",
-    "lint": "next lint"
+    "lint": "next lint",
+    "generate-sitemap": "node ./pages/utils/generate-sitemap.js"
   },
   "dependencies": {
     "@emotion/react": "^11.10.6",
@@ -24,6 +25,7 @@
     "next": "13.2.4",
     "react": "18.2.0",
     "react-dom": "18.2.0",
+    "sitemap": "^7.1.1",
     "three": "^0.150.1"
   }
 }
