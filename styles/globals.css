@@ -1,11 +1,19 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
 :root {
   --title-font-size: 30px;
-  --theme-beige-color: #F5F3EFFF;
+  --theme-beige-color: #f5f3efff;
   --theme-white-color: #ffffff;
   --theme-black-color: #000000;
   --font-mono: ui-monospace, Menlo, Monaco, 'Cascadia Mono', 'Segoe UI Mono',
     'Roboto Mono', 'Oxygen Mono', 'Ubuntu Monospace', 'Source Code Pro',
     'Fira Mono', 'Droid Sans Mono', 'Courier New', monospace;
+}
+
+html {
+  scroll-behavior: smooth;
 }
 
 html,
@@ -34,7 +42,6 @@ body {
   align-items: center;
   width: 100%;
   height: 100%;
-  background-color: var(--theme-black-color);
 }
 
 .home-page-container {
@@ -93,7 +100,9 @@ canvas {
   grid-area: 1 / 1 / 2 / 2;
   opacity: 0;
   transform: translateY(20px);
-  transition: opacity 300ms, transform 300ms;
+  transition:
+    opacity 300ms,
+    transform 300ms;
   transition-timing-function: cubic-bezier(0.1, 0.4, 0.2, 1);
   pointer-events: none;
 }
@@ -107,4 +116,160 @@ canvas {
 .opacity-transition {
   opacity: 1;
   transition: opacity 0.3s ease-in-out;
+}
+
+.bg-navbar {
+  background-color: #434738;
+}
+
+.bg-home {
+  background-color: #6e7a31;
+}
+
+.bg-hobbies {
+  background-color: #a7b987;
+}
+
+.bg-projects {
+  background-color: #dedaad;
+}
+
+.bg-contact {
+  background-color: #414016;
+}
+
+.button-with-border::after {
+  content: 'Download CV';
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  position: absolute;
+  top: -2px;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-color: #f97316;
+  border-radius: 12px;
+  transform: translate(-5px, -3px);
+  transition: transform 0.3s ease-in-out;
+}
+
+.button-with-border:hover::after {
+  background-color: #facc15;
+}
+
+.scrollbar-hide::-webkit-scrollbar {
+  display: none;
+}
+.scrollbar-hide {
+  -ms-overflow-style: none; /* Internet Explorer 10+ */
+  scrollbar-width: none; /* Firefox */
+}
+
+/*Switcher*/
+.switch-container {
+  position: relative;
+  border-radius: 3.125em;
+  overflow: hidden;
+  cursor: pointer;
+}
+
+.switch-input {
+  -webkit-appearance: none;
+  appearance: none;
+  position: absolute;
+  z-index: 1;
+  width: 100%;
+  height: 100%;
+  opacity: 0;
+  cursor: pointer;
+}
+
+.switch-button {
+  display: inline-flex;
+  padding: 0 0.375em;
+  border-radius: inherit;
+  border: 0.0625em solid #6b717b;
+  background-color: #aaafbb;
+  transition-property: border-color, background-color;
+  transition-duration: 0.2s;
+
+  .switch-input:checked + & {
+    /*border-color: #facc15;*/
+    background-color: rgba(250, 204, 21, 0.5);
+  }
+}
+
+.switch-button-inside {
+  display: inline-flex;
+  column-gap: 1em;
+  position: relative;
+  border-radius: inherit;
+  padding: 0.75em;
+  transform: translateX(-0.375em);
+  background-image: linear-gradient(90deg, #c5c9d3 48%, #d5d7dd 52%);
+  transition-property: transform;
+  transition-duration: 0.2s;
+
+  &::after {
+    content: '';
+    position: absolute;
+    z-index: -1;
+    inset: 0;
+    border-radius: inherit;
+    background-image: linear-gradient(90deg, #f8d95b 48%, #facc15 52%);
+    opacity: 0;
+    transition-property: opacity;
+    transition-duration: 0.2s;
+  }
+
+  .switch-input:checked + .switch-button > & {
+    transform: translateX(0.375em);
+
+    &::after {
+      opacity: 1;
+    }
+  }
+}
+
+.switch-icon {
+  width: 1em;
+  height: 1em;
+  fill: #f97316;
+  transition-property: fill;
+  transition-duration: 0.2s;
+
+  &.off {
+    .switch-input:checked + .switch-button & {
+      fill: #ea6508;
+      filter: none;
+    }
+  }
+
+  &.on {
+    .switch-input:not(:checked) + .switch-button & {
+      fill: #767c86;
+      filter: none;
+    }
+  }
+}
+
+.child {
+  width: 100%;
+  height: 100%;
+  border-radius: 50%;
+}
+
+.childComponent {
+  width: 100%;
+  height: 100%;
+  border-radius: 50%;
+  display: flex;
+  user-select: none;
+  align-items: center;
+  justify-content: center;
+}
+
+.no-scroll {
+  overflow: hidden;
 }

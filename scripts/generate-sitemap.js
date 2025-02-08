@@ -9,7 +9,7 @@ let links = [
 const stream = new SitemapStream({ hostname: 'https://olhapyshchyk.com' });
 
 // Pass the links directly to the stream
-links.forEach(link => {
+links.forEach((link) => {
   stream.write(link);
 });
 
@@ -22,4 +22,6 @@ stream
   .on('error', (error) => console.log(error))
   .on('finish', () => console.log('Sitemap created successfully'));
 
-streamToPromise(stream).then(data => console.log('Done')).catch(error => console.error(error));
+streamToPromise(stream)
+  .then((data) => console.log('Done'))
+  .catch((error) => console.error(error));

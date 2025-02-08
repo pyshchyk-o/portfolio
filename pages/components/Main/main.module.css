@@ -1,35 +1,35 @@
 .homeContainer {
-    transition: 0.3s ease-in-out;
+  transition: 0.3s ease-in-out;
 }
 
 .mainTitle {
-    font-size: var(--title-font-size);
-    margin-bottom: 12px;
+  font-size: var(--title-font-size);
+  margin-bottom: 12px;
 }
 
 .links {
-    display: flex;
-    flex-direction: column;
-    margin-top: 8px;
+  display: flex;
+  flex-direction: column;
+  margin-top: 8px;
 }
 
 .mediaLink {
-    color: var(--title-font-size);
-    text-decoration: none;
-    transition-property: opacity;
-    transition-duration: .4s;
-    transition-timing-function: cubic-bezier(0.1, 0.4, 0.2, 1);
-    line-height: 24px;
-    display: flex;
-    align-items: center;
+  color: var(--title-font-size);
+  text-decoration: none;
+  transition-property: opacity;
+  transition-duration: 0.4s;
+  transition-timing-function: cubic-bezier(0.1, 0.4, 0.2, 1);
+  line-height: 24px;
+  display: flex;
+  align-items: center;
 }
 
 .mediaLink:hover {
-    opacity: 0.6;
+  opacity: 0.6;
 }
 
 .arrow {
-    font-size: 14px;
-    font-weight: bold;
-    margin-left: 4px;
+  font-size: 14px;
+  font-weight: bold;
+  margin-left: 4px;
 }
