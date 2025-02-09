@@ -19,7 +19,7 @@ const Index = () => {
     };
   }, []);
 
-  const liStyle = `${isColorful ? (isScrolled ? 'text-[#414016]' : 'text-white') : 'text-white'} hover:text-yellow-400`;
+  const liStyle = `text-stone-800 ${isColorful ? (isScrolled ? 'md:text-[#414016] md:hover:text-orange-500' : 'md:text-white md:hover:text-yellow-400') : 'md:text-white md:hover:text-yellow-400'}`;
   return (
     <nav
       className={`fixed top-5 left-1/2 transform -translate-x-1/2 shadow-lg z-50 backdrop-blur-lg ${
@@ -55,7 +55,7 @@ const Index = () => {
             </li>
           </ul>
         </div>
-        <div className="absolute top-2 right-2">
+        <div className="absolute top-2 right-2 hidden sm:flex">
           <div className="switch-container">
             <input
               className="switch-input"

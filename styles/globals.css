@@ -108,7 +108,7 @@ body {
   display: inline-flex;
   padding: 0 0.375em;
   border-radius: inherit;
-  border: 0.0625em solid #6b717b;
+  border: 0.0625em solid #aaafbb;
   background-color: #aaafbb;
   transition-property: border-color, background-color;
   transition-duration: 0.2s;

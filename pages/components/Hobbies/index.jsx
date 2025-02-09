@@ -1,5 +1,6 @@
 import React, { useState } from 'react';
 import { useTheme } from '../../../context/themeContext';
+import CanvasBackground from '../../../components/CanvasBackground';
 
 const hobbiesData = [
   {
@@ -22,16 +23,14 @@ const hobbiesData = [
     name: 'Traveling',
     icon: 'fa-solid fa-plane',
     color: 'bg-[#ABC337]',
-    description:
-      'I love exploring different cultures, meeting people, and trying local food.',
+    description: 'I love exploring different cultures and trying local food.',
   },
   {
     id: 4,
     name: 'Languages',
     icon: 'fa-solid fa-globe',
     color: 'bg-[#FCCF47]',
-    description:
-      'I enjoy learning new languages and communicating with people globally.',
+    description: 'I enjoy learning new languages.',
   },
   {
     id: 5,
@@ -46,8 +45,7 @@ const hobbiesData = [
     name: 'Investments',
     icon: 'fa-solid fa-chart-line',
     color: 'bg-red-500',
-    description:
-      'Exploring finance, stocks, and investment opportunities excites me.',
+    description: 'Exploring finance, stocks, and investment.',
   },
   {
     id: 7,
@@ -55,15 +53,14 @@ const hobbiesData = [
     icon: 'fa-solid fa-mountain',
     color: 'bg-gray-600',
     description:
-      'I love hiking in the mountains and enjoying breathtaking views.',
+      'I love trail running in the mountains and enjoying the views.',
   },
   {
     id: 8,
     name: 'Hiking',
     icon: 'fa-solid fa-hiking',
     color: 'bg-green-500',
-    description:
-      'Hiking is my way of connecting with nature and staying active.',
+    description: '',
   },
 ];
 
@@ -76,8 +73,9 @@ const Hobbies = () => {
       id="hobbies"
       className={`h-screen ${
         isColorful ? 'bg-hobbies' : 'bg-stone-800'
-      } flex flex-col items-center text-center py-12 px-6`}
+      } relative flex flex-col items-center text-center py-12 px-6`}
     >
+      <CanvasBackground />
       <h2
         className={`text-4xl font-bold my-12 ${
           isColorful ? 'text-[#414016]' : 'text-[#DEDAAD]'

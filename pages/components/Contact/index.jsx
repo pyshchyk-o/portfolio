@@ -1,6 +1,7 @@
 import React from 'react';
 import { useTheme } from '../../../context/themeContext';
 import SocialLinks from '../../../components/SocialLinks';
+import CanvasBackground from '../../../components/CanvasBackground';
 
 const Contact = () => {
   const { isColorful } = useTheme();
@@ -11,8 +12,9 @@ const Contact = () => {
       id="contact"
       className={`${
         isColorful ? 'bg-contact text-white' : 'bg-stone-800 text-gray-300'
-      } h-[50vh] flex flex-col items-center justify-center text-center px-24`}
+      } relative h-[50vh] flex flex-col items-center justify-center text-center px-24`}
     >
+      <CanvasBackground />
       <h2 className="text-4xl font-bold mb-4 text-[#DEDAAD]">contact me</h2>
       <p className="text-lg mb-6">
         email:{' '}

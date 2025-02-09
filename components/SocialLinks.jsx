@@ -30,7 +30,7 @@ const SocialLinks = ({ showEmail }) => {
   }
 
   return (
-    <div className="flex space-x-4">
+    <div className="flex space-x-4 z-10">
       {links.map((link, index) => (
         <a
           key={index}
