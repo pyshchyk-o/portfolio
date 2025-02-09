@@ -19,7 +19,7 @@ const Index = () => {
     };
   }, []);
 
-  const liStyle = `text-stone-800 ${isColorful ? (isScrolled ? 'md:text-[#414016] md:hover:text-orange-500' : 'md:text-white md:hover:text-yellow-400') : 'md:text-white md:hover:text-yellow-400'}`;
+  const liStyle = `${isColorful ? (isScrolled ? 'text-stone-800 md:text-[#414016] md:hover:text-orange-500' : 'text-stone-800 md:text-white md:hover:text-yellow-400') : 'md:text-white md:hover:text-yellow-400'}`;
   return (
     <nav
       className={`fixed top-5 left-1/2 transform -translate-x-1/2 shadow-lg z-50 backdrop-blur-lg ${
