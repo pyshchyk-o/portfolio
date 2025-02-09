@@ -42,7 +42,7 @@ const About = () => {
           <h2
             className={`text-4xl font-bold mb-4 ${isColorful ? 'text-[#414016]' : 'text-[#A7B987]'}`}
           >
-            hello, i'm Olha Pyshchyk
+            hello, i&apos;m Olha Pyshchyk
           </h2>
           <h3 className="text-2xl font-semibold text-yellow-400 mb-4">
             senior software engineer
@@ -55,7 +55,7 @@ const About = () => {
             enjoy working across engineering, design, and UX to build great
             products. Beyond frontend, I enjoy working across the stack, solving
             complex challenges, and launching side projects like Kvik App and
-            Mockup Generator. I’m always exploring new technologies and product
+            Mockup Generator. I&apos;m always exploring new technologies and product
             strategies, making sure every product I build works well, is easy to
             use, and enjoyable.
           </p>
