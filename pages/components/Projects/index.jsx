@@ -139,6 +139,7 @@ const Projects = () => {
   const [modalContent, setModalContent] = useState(null);
 
   const projects = showPersonal ? personalProjects : workProjects;
+
   const toggleModal = (content = null) => {
     setModalContent(content);
   };
@@ -146,7 +147,7 @@ const Projects = () => {
   return (
     <section
       id="projects"
-      className={`relative sm:h-screen flex flex-col items-center text-center py-12 px-24 ${
+      className={`relative min-h-screen flex flex-col items-center text-center py-12 px-6 ${
         isColorful ? 'bg-projects' : 'bg-stone-800'
       }`}
     >
@@ -157,7 +158,9 @@ const Projects = () => {
           className={`px-6 py-2 font-bold rounded-lg transition duration-300 ${
             showPersonal
               ? 'bg-orange-500 text-white'
-              : `${isColorful ? 'bg-navbar' : 'bg-stone-700'} text-white hover:bg-stone-500`
+              : `${
+                  isColorful ? 'bg-navbar' : 'bg-stone-700'
+                } text-white hover:bg-stone-500`
           }`}
         >
           Personal
@@ -167,36 +170,38 @@ const Projects = () => {
           className={`px-6 py-2 font-bold rounded-lg transition duration-300 ${
             !showPersonal
               ? 'bg-orange-500 text-white'
-              : `${isColorful ? 'bg-navbar' : 'bg-stone-700'} text-white hover:bg-stone-500`
+              : `${
+                  isColorful ? 'bg-navbar' : 'bg-stone-700'
+                } text-white hover:bg-stone-500`
           }`}
         >
           Work
         </button>
       </div>
 
-      <div className="flex overflow-x-scroll space-x-6 w-full scrollbar-hide py-9">
+      <div className="flex flex-wrap justify-center gap-6 w-full py-9">
         {projects.map((project, index) => {
           const status = project.status;
           const shouldShowReadMore = project.keyContributions?.length > 3;
           return (
             <div
               key={index}
-              className="min-w-[450px] w-[450px] min-h-[500px] bg-stone-200 rounded-lg shadow-lg p-6 flex-shrink-0 transform hover:scale-105 transition duration-300 flex flex-col justify-between relative"
+              className="w-full max-w-sm sm:w-[450px] min-h-[430px] bg-stone-200 rounded-lg shadow-lg p-4 sm:p-6 flex-shrink-0 transform hover:scale-105 transition duration-300 flex flex-col justify-between relative"
             >
               <div className="flex flex-col">
                 {project.logo && (
                   <div className="flex w-full justify-center mt-5">
                     <img
                       src={project.logo}
-                      width={100}
-                      height={100}
+                      width={80}
+                      height={80}
                       alt="Project logo"
                       className={project.logoStyles}
                     />
                   </div>
                 )}
 
-                <h3 className="text-2xl font-semibold mb-4 text-gray-800 mt-6">
+                <h3 className="text-xl sm:text-2xl font-semibold mb-4 text-gray-800 mt-8">
                   {project.title}
                 </h3>
 
@@ -212,19 +217,9 @@ const Projects = () => {
                   {status}
                 </span>
 
-                <p className="text-gray-600">{project.description}</p>
-
-                {project.keyContributions && (
-                  <ul className="mt-4 list-disc list-inside space-y-2 text-left mb-7">
-                    {project.keyContributions
-                      .slice(0, 3)
-                      .map((contribution, i) => (
-                        <li key={i} className="ml-2 text-gray-600">
-                          {contribution}
-                        </li>
-                      ))}
-                  </ul>
-                )}
+                <p className="text-gray-600 text-sm sm:text-base">
+                  {project.description}
+                </p>
               </div>
 
               <div className="flex mt-4">
@@ -255,32 +250,37 @@ const Projects = () => {
         <Modal
           isOpen={!!modalContent}
           toggleModal={() => toggleModal(null)}
-          className="items-center"
+          className="items-center max-h-[70%] h-[70%] min-h-[70%] md:h-auto md:max-h-[730px] md:min-h-[730px]"
         >
-          <div className="text-left p-10">
-            <h2 className="text-3xl font-bold mb-4 text-gray-800">
-              {modalContent.title}
-            </h2>
-            <p className="text-gray-600 mb-4">{modalContent.description}</p>
-            {modalContent.keyContributions && (
-              <ul className="mt-4 list-disc list-inside space-y-2 text-left mb-7">
-                {modalContent.keyContributions.map((contribution, i) => (
-                  <li key={i} className="ml-2 text-gray-600">
-                    {contribution}
+          <div className="overflow-y-auto h-full">
+            <div className="text-left p-5 sm:p-10">
+              <h2 className="text-xl sm:text-3xl font-bold mb-4 text-gray-800">
+                {modalContent.title}
+              </h2>
+              <p className="text-gray-600 mb-4">{modalContent.description}</p>
+              {modalContent.keyContributions && (
+                <ul className="mt-4 list-disc list-inside space-y-2 text-left mb-7">
+                  {modalContent.keyContributions.map((contribution, i) => (
+                    <li
+                      key={i}
+                      className="ml-2 text-gray-600 text-sm sm:text-base"
+                    >
+                      {contribution}
+                    </li>
+                  ))}
+                </ul>
+              )}
+              <ul className="flex flex-wrap gap-2 mt-4">
+                {modalContent.technologies.map((tech, idx) => (
+                  <li
+                    key={idx}
+                    className="px-3 py-2 text-sm font-semibold text-yellow-400 bg-orange-500 rounded-full"
+                  >
+                    {tech}
                   </li>
                 ))}
               </ul>
-            )}
-            <ul className="flex flex-wrap gap-2 mt-4">
-              {modalContent.technologies.map((tech, idx) => (
-                <li
-                  key={idx}
-                  className="px-3 py-2 text-sm font-semibold text-yellow-400 bg-orange-500 rounded-full"
-                >
-                  {tech}
-                </li>
-              ))}
-            </ul>
+            </div>
           </div>
         </Modal>
       )}

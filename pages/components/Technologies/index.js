@@ -1,4 +1,4 @@
-import { useState, useEffect } from 'react';
+import React, { useState } from 'react';
 import BubbleUI from 'react-bubble-ui';
 import 'react-bubble-ui/dist/index.css';
 
@@ -89,21 +89,13 @@ export default function Technologies() {
 
   return (
     <div className="w-full">
-      <div className="flex items-center justify-between p-4 h-[65px] ">
-        <div
-          className={`text-xl font-semibold text-gray-800 flex items-center space-x-4 ${!bubble && 'opacity-0'}`}
-        >
-          <span className="text-gray-900">
-            Selected Technology: {bubble.title}
-          </span>
-          <img src={bubble.src} alt={bubble.title} width={30} />
-        </div>
+      <div className="flex items-center py-4 h-[65px]">
         <button
           onClick={() => {
             setViewMode(viewMode === 'bubble' ? 'list' : 'bubble');
             setBubble('');
           }}
-          className="px-4 py-2 mb-[63px]"
+          className="px-4 py-2"
         >
           <i
             className={`fa-solid text-gray-950 ${
@@ -111,18 +103,29 @@ export default function Technologies() {
             } text-2xl`}
           ></i>
         </button>
+        <div
+          className={`text-xl font-semibold text-gray-800 flex items-center space-x-3 ml-3 ${!bubble && 'opacity-0'}`}
+        >
+          <span className="text-gray-900 hidden sm:inline-block">
+            Selected Technology:
+          </span>
+          <span className="text-gray-900">{bubble.title}</span>
+          <img src={bubble.src} alt={bubble.title} width={30} />
+        </div>
       </div>
 
       {viewMode === 'bubble' ? (
-        <BubbleUI
-          key={1}
-          options={options}
-          className="w-full min-h-[600px] h-[600px]"
-        >
-          {children}
-        </BubbleUI>
+        <>
+          <BubbleUI
+            key={1}
+            options={options}
+            className="w-full min-h-[400px] h-[400px] sm:min-h-[600px] sm:h-[600px]"
+          >
+            {children}
+          </BubbleUI>
+        </>
       ) : (
-        <div className="flex flex-col space-y-4 p-4 max-h-[600px] overflow-y-auto rounded-lg">
+        <div className="flex flex-col space-y-4 p-4 max-h-[400px] sm:max-h-[600px] overflow-y-auto rounded-lg">
           {data.map((item, i) => (
             <div
               key={i}
@@ -142,6 +145,16 @@ export default function Technologies() {
           ))}
         </div>
       )}
+      <div
+        className={`flex items-center w-full justify-center mt-3 ${viewMode !== 'bubble' && 'opacity-0'}`}
+      >
+        <span className="font-semibold text-gray-800 mr-2">Use: </span>
+        <img
+          src="/two-fingers-swipe.png"
+          alt="swipe icon"
+          className="w-6 w-6"
+        />
+      </div>
     </div>
   );
 }

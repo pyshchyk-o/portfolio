@@ -76,7 +76,11 @@ const About = () => {
         </div>
       </div>
 
-      <Modal isOpen={isModalOpen} toggleModal={toggleModal}>
+      <Modal
+        isOpen={isModalOpen}
+        toggleModal={toggleModal}
+        className="items-center h-[70%] max-h-[70%] min-h-[70%] md:max-h-[730px] md:min-h-[730px]"
+      >
         <Technologies />
       </Modal>
     </section>
