@@ -7,7 +7,7 @@ const Index = () => {
 
   useEffect(() => {
     const handleScroll = () => {
-      const widowHeight = window.innerHeight
+      const widowHeight = window.innerHeight;
       setIsScrolled(window.scrollY > widowHeight - 50);
     };
 

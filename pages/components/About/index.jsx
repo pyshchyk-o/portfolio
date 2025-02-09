@@ -1,9 +1,9 @@
 import { useTheme } from '../../../context/themeContext';
 import React, { useState } from 'react';
 import Technologies from '../Technologies/index';
-import SocialLinks from "../../../components/SocialLinks";
-import Modal from "../../../components/Modal";
-import Button from "../../../components/Button";
+import SocialLinks from '../../../components/SocialLinks';
+import Modal from '../../../components/Modal';
+import Button from '../../../components/Button';
 
 const About = () => {
   const { isColorful } = useTheme();
@@ -45,7 +45,10 @@ const About = () => {
           </p>
 
           <div className="flex">
-            <Button text="Download CV" onClick={() => console.log("Download clicked")} />
+            <Button
+              text="Download CV"
+              onClick={() => console.log('Download clicked')}
+            />
             <Button text="Tech Stack" onClick={toggleModal} className="ml-6" />
           </div>
         </div>

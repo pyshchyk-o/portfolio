@@ -39,8 +39,10 @@ export const data = [
 
 const ChildComponent = ({ data, setClick }) => {
   return (
-    <div       className="w-full h-full rounded-full flex items-center justify-center select-none"
-               onClick={() => setClick(data)}>
+    <div
+      className="w-full h-full rounded-full flex items-center justify-center select-none"
+      onClick={() => setClick(data)}
+    >
       {data}
     </div>
   );

@@ -1,6 +1,6 @@
 import React from 'react';
 import { useTheme } from '../../../context/themeContext';
-import SocialLinks from "../../../components/SocialLinks";
+import SocialLinks from '../../../components/SocialLinks';
 
 const Contact = () => {
   const { isColorful } = useTheme();
