@@ -2,6 +2,7 @@ import React, { useState } from 'react';
 import { useTheme } from '../../../context/themeContext';
 import CanvasBackground from '../../../components/CanvasBackground';
 import Modal from '../../../components/Modal';
+import Image from 'next/image';
 
 const personalProjects = [
   {
@@ -13,7 +14,7 @@ const personalProjects = [
     technologies: ['Next.js', 'React Native', 'Firebase', 'Expo'],
     link: 'https://kvikapp.com/',
     label: 'kvikapp.com',
-    logo: 'kvik_logo.svg',
+    logo: '/kvik_logo.svg',
   },
   {
     title: 'Mockup Generator – Automating Product Mockups in Seconds',
@@ -24,7 +25,7 @@ const personalProjects = [
     technologies: ['React', 'Next.js', 'Node.js', 'Stripe'],
     link: 'https://mockupgenerator.co/',
     label: 'mockupgenerator.co',
-    logo: 'mockup_generator_logo.svg',
+    logo: '/mockup_generator_logo.svg',
   },
   {
     title: 'Run Wild Peanut',
@@ -34,7 +35,7 @@ const personalProjects = [
     technologies: ['Amazon'],
     link: 'https://runwildpeanut.com',
     label: 'runwildpeanut.com',
-    logo: 'run_wild_peanut.png',
+    logo: '/run_wild_peanut.png',
   },
   {
     title: 'Noe Crafts',
@@ -45,7 +46,7 @@ const personalProjects = [
     technologies: ['Shopify'],
     link: 'https://noecrafts.com/',
     label: 'noecrafts.com',
-    logo: 'noe-logo.svg',
+    logo: '/noe-logo.svg',
     logoStyles: 'rounded-xl',
   },
 ];
@@ -191,7 +192,7 @@ const Projects = () => {
               <div className="flex flex-col">
                 {project.logo && (
                   <div className="flex w-full justify-center mt-5">
-                    <img
+                    <Image
                       src={project.logo}
                       width={80}
                       height={80}

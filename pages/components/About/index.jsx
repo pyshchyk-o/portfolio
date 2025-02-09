@@ -1,5 +1,7 @@
-import { useTheme } from '../../../context/themeContext';
 import React, { useState } from 'react';
+import Image from 'next/image';
+
+import { useTheme } from '../../../context/themeContext';
 import Technologies from '../Technologies/index';
 import SocialLinks from '../../../components/SocialLinks';
 import Modal from '../../../components/Modal';
@@ -66,10 +68,12 @@ const About = () => {
 
         <div className="flex-1 flex flex-col items-center mt-9 lg:mt-0">
           <div className="relative w-[350px] h-[350px] rounded-full overflow-hidden border-[6px] border-yellow-400 shadow-lg mb-8">
-            <img
+            <Image
               src="/avatar.JPG"
               alt="avatar"
               className="w-full h-full object-cover"
+              width={350}
+              height={350}
             />
           </div>
           <SocialLinks circleStyle={circleStyle} showEmail />

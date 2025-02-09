@@ -1,8 +1,9 @@
 import React, { useState } from 'react';
 import BubbleUI from 'react-bubble-ui';
 import 'react-bubble-ui/dist/index.css';
+import Image from 'next/image';
 
-const width = 100;
+const size = 100;
 export const data = [
   {
     src: 'https://cdn.svgporn.com/logos/github-actions.svg',
@@ -76,7 +77,9 @@ export default function Technologies() {
   };
 
   const children = data.map((item, i) => {
-    const img = <img src={item.src} width={width} alt={item.title} />;
+    const img = (
+      <Image src={item.src} width={size} height={size} alt={item.title} />
+    );
     return (
       <ChildComponent
         className="w-full h-full rounded-full"
@@ -110,7 +113,7 @@ export default function Technologies() {
             Selected Technology:
           </span>
           <span className="text-gray-900">{bubble.title}</span>
-          <img src={bubble.src} alt={bubble.title} width={30} />
+          <Image src={bubble.src} alt={bubble.title} width={30} height={30} />
         </div>
       </div>
 
@@ -131,7 +134,7 @@ export default function Technologies() {
               key={i}
               className="flex items-center space-x-4 p-2 hover:bg-yellow-50 rounded-md transition"
             >
-              <img
+              <Image
                 src={item.src}
                 alt={item.title}
                 width={40}
@@ -149,10 +152,12 @@ export default function Technologies() {
         className={`flex items-center w-full justify-center mt-3 ${viewMode !== 'bubble' && 'opacity-0'}`}
       >
         <span className="font-semibold text-gray-800 mr-2">Use: </span>
-        <img
+        <Image
           src="/two-fingers-swipe.png"
           alt="swipe icon"
           className="w-6 w-6"
+          width={24}
+          height={24}
         />
       </div>
     </div>
