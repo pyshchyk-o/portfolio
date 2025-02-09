@@ -4,7 +4,7 @@ import React, { createContext, useState, useContext, useEffect } from 'react';
 const ThemeContext = createContext();
 
 export const ThemeProvider = ({ children }) => {
-  const [isColorful, setIsColorful] = useState(null); // Start with `null` to avoid mismatches
+  const [isColorful, setIsColorful] = useState(null);
 
   useEffect(() => {
     if (typeof window !== 'undefined') {
@@ -21,7 +21,7 @@ export const ThemeProvider = ({ children }) => {
     });
   };
 
-  if (isColorful === null) return null; // Prevents rendering until hydration is complete
+  if (isColorful === null) return null;
 
   return (
     <ThemeContext.Provider value={{ isColorful, toggleTheme }}>

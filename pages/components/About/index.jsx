@@ -1,23 +1,13 @@
 import { useTheme } from '../../../context/themeContext';
-import React, { useState, useEffect } from 'react';
+import React, { useState } from 'react';
 import Technologies from '../Technologies/index';
+import SocialLinks from "../../../components/SocialLinks";
+import Modal from "../../../components/Modal";
+import Button from "../../../components/Button";
 
 const About = () => {
   const { isColorful } = useTheme();
   const [isModalOpen, setModalOpen] = useState(false);
-
-  useEffect(() => {
-    if (isModalOpen) {
-      document.body.classList.add('no-scroll');
-    } else {
-      document.body.classList.remove('no-scroll');
-    }
-
-    // Cleanup function to remove the class when component unmounts
-    return () => {
-      document.body.classList.remove('no-scroll');
-    };
-  }, [isModalOpen]);
 
   const toggleModal = () => {
     setModalOpen((prev) => !prev);
@@ -55,22 +45,8 @@ const About = () => {
           </p>
 
           <div className="flex">
-            <button className="group relative px-6 py-3 bg-yellow-400 text-white rounded-lg shadow-md hover:bg-orange-500 transition duration-300">
-              <span className="absolute inset-0 rounded-lg bg-orange-500 -translate-y-2 translate-x-2 transition duration-300 group-hover:bg-yellow-400"></span>
-              <span className="relative top-[-8px] right-[-7px] font-bold group-hover:text-orange-500">
-                download cv
-              </span>
-            </button>
-
-            <button
-              onClick={toggleModal}
-              className="group relative px-6 py-3 bg-yellow-400 text-white rounded-lg shadow-md hover:bg-orange-500 transition duration-300 ml-6"
-            >
-              <span className="absolute inset-0 rounded-lg bg-orange-500 -translate-y-2 translate-x-2 transition duration-300 group-hover:bg-yellow-400"></span>
-              <span className="relative top-[-8px] right-[-7px] font-bold group-hover:text-orange-500">
-                tech stack
-              </span>
-            </button>
+            <Button text="Download CV" onClick={() => console.log("Download clicked")} />
+            <Button text="Tech Stack" onClick={toggleModal} className="ml-6" />
           </div>
         </div>
 
@@ -82,70 +58,13 @@ const About = () => {
               className="w-full h-full object-cover"
             />
           </div>
-          <div className="flex space-x-4">
-            <a
-              href="https://github.com/pyshchyk-o"
-              target="_blank"
-              rel="noopener noreferrer"
-              aria-label="GitHub"
-              className={circleStyle}
-            >
-              <i
-                className="fa-brands fa-github text-white group-hover:text-orange-500 transition duration-300"
-                style={{ fontSize: '20px' }}
-              ></i>
-            </a>
-            <a
-              href="https://www.linkedin.com/in/opyshchyk"
-              target="_blank"
-              rel="noopener noreferrer"
-              aria-label="LinkedIn"
-              className={circleStyle}
-            >
-              <i
-                className="fa-brands fa-linkedin-in text-white group-hover:text-orange-500 transition duration-300"
-                style={{ fontSize: '20px' }}
-              ></i>
-            </a>
-            <a
-              href="https://twitter.com/OlhaPyshchyk"
-              target="_blank"
-              rel="noopener noreferrer"
-              aria-label="Twitter"
-              className={circleStyle}
-            >
-              <i
-                className="fa-brands fa-twitter text-white group-hover:text-orange-500 transition duration-300"
-                style={{ fontSize: '20px' }}
-              ></i>
-            </a>
-            <a
-              href="mailto:contact@olhapyshchyk.com"
-              aria-label="Email"
-              className={circleStyle}
-            >
-              <i
-                className="fa-solid fa-envelope text-white group-hover:text-orange-500 transition duration-300"
-                style={{ fontSize: '20px' }}
-              ></i>
-            </a>
-          </div>
+          <SocialLinks circleStyle={circleStyle} showEmail />
         </div>
       </div>
 
-      {isModalOpen && (
-        <div className="fixed inset-0 flex items-center justify-center bg-black bg-opacity-50 z-50">
-          <div className="bg-white rounded-lg p-8 w-[80%] max-w-[800px] min-h-[730px] relative">
-            <button
-              onClick={toggleModal}
-              className="absolute top-2 right-2 text-gray-500 hover:text-gray-800 w-8 h-8 pt-2 pr-2"
-            >
-              <i className="fa-solid fa-xmark text-gray-950 text-2xl"></i>
-            </button>
-            <Technologies />
-          </div>
-        </div>
-      )}
+      <Modal isOpen={isModalOpen} toggleModal={toggleModal}>
+        <Technologies />
+      </Modal>
     </section>
   );
 };

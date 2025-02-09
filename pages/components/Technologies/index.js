@@ -39,7 +39,8 @@ export const data = [
 
 const ChildComponent = ({ data, setClick }) => {
   return (
-    <div className="childComponent" onClick={() => setClick(data)}>
+    <div       className="w-full h-full rounded-full flex items-center justify-center select-none"
+               onClick={() => setClick(data)}>
       {data}
     </div>
   );
@@ -76,8 +77,8 @@ export default function Technologies() {
     const img = <img src={item.src} width={width} alt={item.title} />;
     return (
       <ChildComponent
+        className="w-full h-full rounded-full"
         data={img}
-        className="child"
         key={i}
         setClick={handleClick}
       />
@@ -123,7 +124,7 @@ export default function Technologies() {
           {data.map((item, i) => (
             <div
               key={i}
-              className="flex items-center space-x-4 p-2 hover:bg-gray-100 rounded-md transition"
+              className="flex items-center space-x-4 p-2 hover:bg-yellow-50 rounded-md transition"
             >
               <img
                 src={item.src}

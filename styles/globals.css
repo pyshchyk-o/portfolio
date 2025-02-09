@@ -36,88 +36,6 @@ body {
   height: 100%;
 }
 
-.container {
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  width: 100%;
-  height: 100%;
-}
-
-.home-page-container {
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  position: relative;
-  width: 100%;
-  height: 100%;
-}
-
-canvas {
-  width: 100%;
-  height: 100%;
-}
-
-.main-content-wrapper {
-  z-index: 2;
-  color: var(--theme-beige-color);
-  background-color: rgba(0, 0, 0, 0.3);
-  padding: 20px;
-}
-
-.main-content-nav-items {
-  width: 600px;
-  /*height: 400px;*/
-}
-
-.main-content-navbar {
-  position: absolute;
-  top: 0;
-  left: 0;
-}
-
-.main-content-toggle {
-  position: absolute;
-  display: flex;
-  column-gap: 15px;
-  cursor: pointer;
-  transform: rotate(-90deg);
-  bottom: 91px;
-  left: -91px;
-}
-
-.main-content-gradient {
-  position: absolute;
-  bottom: 0;
-}
-
-/*Transition*/
-.component-container {
-  display: grid;
-}
-
-.component {
-  grid-area: 1 / 1 / 2 / 2;
-  opacity: 0;
-  transform: translateY(20px);
-  transition:
-    opacity 300ms,
-    transform 300ms;
-  transition-timing-function: cubic-bezier(0.1, 0.4, 0.2, 1);
-  pointer-events: none;
-}
-
-.component.active {
-  opacity: 1;
-  transform: translateY(0);
-  pointer-events: auto;
-}
-
-.opacity-transition {
-  opacity: 1;
-  transition: opacity 0.3s ease-in-out;
-}
-
 .bg-navbar {
   background-color: #434738;
 }
@@ -138,6 +56,7 @@ canvas {
   background-color: #414016;
 }
 
+/*Main button styles*/
 .button-with-border::after {
   content: 'Download CV';
   display: flex;
@@ -252,22 +171,6 @@ canvas {
       filter: none;
     }
   }
-}
-
-.child {
-  width: 100%;
-  height: 100%;
-  border-radius: 50%;
-}
-
-.childComponent {
-  width: 100%;
-  height: 100%;
-  border-radius: 50%;
-  display: flex;
-  user-select: none;
-  align-items: center;
-  justify-content: center;
 }
 
 .no-scroll {

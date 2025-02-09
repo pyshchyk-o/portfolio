@@ -1,12 +1,29 @@
-import React from 'react';
+import React, { useState, useEffect } from 'react';
 import { useTheme } from '../../../context/themeContext';
 
 const Index = () => {
   const { isColorful, toggleTheme } = useTheme();
+  const [isScrolled, setIsScrolled] = useState(false);
+
+  useEffect(() => {
+    const handleScroll = () => {
+      const widowHeight = window.innerHeight
+      setIsScrolled(window.scrollY > widowHeight - 50);
+    };
+
+    window.addEventListener('scroll', handleScroll);
+
+    // Cleanup the event listener
+    return () => {
+      window.removeEventListener('scroll', handleScroll);
+    };
+  }, []);
+
+  const liStyle = `${isColorful ? (isScrolled ? 'text-[#414016]' : 'text-white') : 'text-white'} hover:text-yellow-400`;
   return (
     <nav
-      className={`fixed top-[20px] left-1/2 transform -translate-x-1/2 shadow-lg z-50 ${
-        isColorful ? 'bg-navbar text-white' : 'bg-stone-700'
+      className={`fixed top-5 left-1/2 transform -translate-x-1/2 shadow-lg z-50 backdrop-blur-lg ${
+        isColorful ? 'bg-navbar/70' : 'bg-stone-700/50'
       }`}
       style={{
         borderRadius: '34px',
@@ -14,25 +31,25 @@ const Index = () => {
       }}
     >
       <div>
-        <div className="container mx-auto flex justify-between items-center py-4 px-6">
-          <ul className="flex space-x-6">
+        <div className="mx-auto flex justify-center items-center py-4 px-6">
+          <ul className="flex space-x-6 text-yellow-400">
             <li>
-              <a href="#about" className="hover:text-yellow-400">
+              <a href="#about" className={liStyle}>
                 about
               </a>
             </li>
             <li>
-              <a href="#projects" className="hover:text-yellow-400">
+              <a href="#projects" className={liStyle}>
                 projects
               </a>
             </li>
             <li>
-              <a href="#hobbies" className="hover:text-yellow-400">
+              <a href="#hobbies" className={liStyle}>
                 hobbies
               </a>
             </li>
             <li>
-              <a href="#contact" className="hover:text-yellow-400">
+              <a href="#contact" className={liStyle}>
                 contact
               </a>
             </li>

@@ -1,5 +1,6 @@
 import React from 'react';
 import { useTheme } from '../../../context/themeContext';
+import SocialLinks from "../../../components/SocialLinks";
 
 const Contact = () => {
   const { isColorful } = useTheme();
@@ -23,44 +24,7 @@ const Contact = () => {
         </a>
       </p>
 
-      <div className="flex space-x-6">
-        <a
-          href="https://github.com/pyshchyk-o"
-          target="_blank"
-          rel="noopener noreferrer"
-          aria-label="GitHub"
-          className={circleStyle}
-        >
-          <i
-            className="fa-brands fa-github text-white group-hover:text-orange-500 transition duration-300"
-            style={{ fontSize: '20px' }}
-          ></i>
-        </a>
-        <a
-          href="https://www.linkedin.com/in/opyshchyk"
-          target="_blank"
-          rel="noopener noreferrer"
-          aria-label="LinkedIn"
-          className={circleStyle}
-        >
-          <i
-            className="fa-brands fa-linkedin-in text-white group-hover:text-orange-500 transition duration-300"
-            style={{ fontSize: '20px' }}
-          ></i>
-        </a>
-        <a
-          href="https://twitter.com/OlhaPyshchyk"
-          target="_blank"
-          rel="noopener noreferrer"
-          aria-label="Twitter"
-          className={circleStyle}
-        >
-          <i
-            className="fa-brands fa-twitter text-white group-hover:text-orange-500 transition duration-300"
-            style={{ fontSize: '20px' }}
-          ></i>
-        </a>
-      </div>
+      <SocialLinks circleStyle={circleStyle} />
     </section>
   );
 };
