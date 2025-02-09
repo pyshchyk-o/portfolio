@@ -55,9 +55,9 @@ const About = () => {
             enjoy working across engineering, design, and UX to build great
             products. Beyond frontend, I enjoy working across the stack, solving
             complex challenges, and launching side projects like Kvik App and
-            Mockup Generator. I&apos;m always exploring new technologies and product
-            strategies, making sure every product I build works well, is easy to
-            use, and enjoyable.
+            Mockup Generator. I&apos;m always exploring new technologies and
+            product strategies, making sure every product I build works well, is
+            easy to use, and enjoyable.
           </p>
 
           <div className="flex justify-center w-full lg:justify-start lg:w-auto">
@@ -66,17 +66,19 @@ const About = () => {
           </div>
         </div>
 
-        <div className="flex-1 flex flex-col items-center mt-9 lg:mt-0">
-          <div className="relative w-[350px] h-[350px] rounded-full overflow-hidden border-[6px] border-yellow-400 shadow-lg mb-8">
-            <Image
-              src="/avatar.JPG"
-              alt="avatar"
-              className="w-full h-full object-cover"
-              width={350}
-              height={350}
-            />
+        <div className="flex-1 flex justify-end mt-9 lg:mt-0">
+          <div className="flex flex-col items-center">
+            <div className="relative w-[350px] h-[350px] rounded-full overflow-hidden border-[6px] border-yellow-400 shadow-lg mb-8">
+              <Image
+                src="/avatar.JPG"
+                alt="avatar"
+                className="w-full h-full object-cover"
+                width={350}
+                height={350}
+              />
+            </div>
+            <SocialLinks circleStyle={circleStyle} showEmail />
           </div>
-          <SocialLinks circleStyle={circleStyle} showEmail />
         </div>
       </div>
 
