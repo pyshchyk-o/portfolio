@@ -71,9 +71,9 @@ const Hobbies = () => {
   return (
     <section
       id="hobbies"
-      className={`h-screen ${
+      className={`sm:h-screen relative flex flex-col items-center text-center py-12 px-6 ${
         isColorful ? 'bg-hobbies' : 'bg-stone-800'
-      } relative flex flex-col items-center text-center py-12 px-6`}
+      }`}
     >
       <CanvasBackground />
       <h2
@@ -85,13 +85,12 @@ const Hobbies = () => {
       </h2>
 
       {/* Responsive Grid Layout */}
-      <div className="grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-4 gap-8 w-full max-w-[900px] place-items-center pt-16">
+      <div className="grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-4 gap-8 w-full max-w-[900px] place-items-center sm:pt-16">
         {hobbiesData.map((hobby) => {
           const isExpanded = expandedBubble === hobby.id;
 
-          // Fixed base size and adaptive scaling
-          const baseSize = 200; // Default size
-          const expandedSize = 250; // Size when expanded
+          const baseSize = 'w-36 h-36 sm:w-48 sm:h-48';
+          const expandedSize = 'w-48 h-48 sm:w-64 sm:h-64';
           const size = isExpanded ? expandedSize : baseSize;
 
           return (
@@ -102,12 +101,10 @@ const Hobbies = () => {
                   prev === hobby.id ? null : hobby.id
                 )
               }
-              className={`relative flex flex-col items-center justify-center text-white rounded-full shadow-lg cursor-pointer transition-all duration-300 ease-in-out bg-stone-200 border-4 border-orange-500 hover:scale-105 hover:shadow-xl hover:bg-yellow-50`}
+              className={`relative flex flex-col items-center justify-center text-white rounded-full shadow-lg cursor-pointer transition-all duration-300 ease-in-out bg-stone-200 border-4 border-orange-500 hover:scale-105 hover:shadow-xl hover:bg-yellow-50 ${size}`}
               style={{
-                width: `${size}px`,
-                height: `${size}px`,
-                padding: '16px', // Padding to contain the text
-                overflow: 'hidden', // Prevent text overflow
+                padding: '16px',
+                overflow: 'hidden',
               }}
             >
               <i className={`${hobby.icon} text-4xl mb-2 text-orange-500`}></i>

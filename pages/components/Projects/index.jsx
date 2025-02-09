@@ -146,9 +146,9 @@ const Projects = () => {
   return (
     <section
       id="projects"
-      className={`${
+      className={`relative sm:h-screen flex flex-col items-center text-center py-12 px-24 ${
         isColorful ? 'bg-projects' : 'bg-stone-800'
-      } relative h-screen flex flex-col items-center text-center py-12 px-24`}
+      }`}
     >
       <CanvasBackground />
       <div className="mb-8 mt-11 flex space-x-4 z-10">
@@ -160,7 +160,7 @@ const Projects = () => {
               : `${isColorful ? 'bg-navbar' : 'bg-stone-700'} text-white hover:bg-stone-500`
           }`}
         >
-          Personal Projects
+          Personal
         </button>
         <button
           onClick={() => setShowPersonal(false)}
@@ -170,7 +170,7 @@ const Projects = () => {
               : `${isColorful ? 'bg-navbar' : 'bg-stone-700'} text-white hover:bg-stone-500`
           }`}
         >
-          Work Projects
+          Work
         </button>
       </div>
 
