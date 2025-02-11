@@ -18,7 +18,7 @@ const Modal = ({ isOpen, toggleModal, children, className }) => {
   return (
     <div className="fixed inset-0 flex items-center justify-center bg-black bg-opacity-50 z-50">
       <div
-        className={`flex bg-stone-200 rounded-3xl p-2 sm:p-8 w-[80%] max-w-[800px] sm:min-h-[730px] relative ${className}`}
+        className={`flex bg-stone-200 rounded-3xl p-2 sm:p-8 w-[80%] max-w-[800px] min-h-[550px] sm:min-h-[730px] relative ${className}`}
       >
         <button
           onClick={toggleModal}
