@@ -202,7 +202,7 @@ const Projects = () => {
                   </div>
                 )}
 
-                <h3 className="text-xl sm:text-2xl font-semibold mb-4 text-gray-800 mt-8">
+                <h3 className="text-xl sm:text-2xl font-semibold mb-4 text-gray-800 mt-9">
                   {project.title}
                 </h3>
 
@@ -212,7 +212,7 @@ const Projects = () => {
                       ? 'bg-lime-900'
                       : status === 'soon'
                         ? 'bg-yellow-900'
-                        : 'bg-green-500'
+                        : 'bg-lime-600'
                   }`}
                 >
                   {status}
@@ -238,7 +238,7 @@ const Projects = () => {
                     onClick={() => toggleModal(project)}
                     className="font-bold rounded-lg bg-yellow-400 hover:bg-orange-500 hover:text-white p-3 min-w-[90px]"
                   >
-                    Read More
+                    more
                   </button>
                 )}
               </div>

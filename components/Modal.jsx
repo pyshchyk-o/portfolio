@@ -18,11 +18,11 @@ const Modal = ({ isOpen, toggleModal, children, className }) => {
   return (
     <div className="fixed inset-0 flex items-center justify-center bg-black bg-opacity-50 z-50">
       <div
-        className={`flex bg-stone-200 rounded-3xl p-8 w-[80%] max-w-[800px] min-h-[730px] relative ${className}`}
+        className={`flex bg-stone-200 rounded-3xl p-2 sm:p-8 w-[80%] max-w-[800px] sm:min-h-[730px] relative ${className}`}
       >
         <button
           onClick={toggleModal}
-          className="absolute top-2 right-2 text-gray-500 hover:text-gray-800 w-8 h-8 pt-2 pr-2"
+          className="absolute top-2 right-2 text-gray-500 hover:text-gray-800 w-8 h-8 p-2"
         >
           <i className="fa-solid fa-xmark text-gray-950 text-2xl"></i>
         </button>

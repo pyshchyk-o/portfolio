@@ -75,6 +75,7 @@ const About = () => {
                 className="w-full h-full object-cover"
                 width={350}
                 height={350}
+                unoptimized
               />
             </div>
             <SocialLinks circleStyle={circleStyle} showEmail />
